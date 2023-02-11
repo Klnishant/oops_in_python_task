@@ -1,0 +1,92 @@
+Q3. What is multiple inheritance? Write a python code to demonstrate multiple inheritance.
+Ans--> Multiple inheritance is a feature in object-oriented programming languages where a class can inherit characteristics and behaviors from multiple parent classes. This allows a class to inherit attributes and methods from more than one base class, which can provide greater flexibility and reuse of code.
+
+Here is an example of multiple inheritance in Python:
+
+class Parent1:
+    def method1(self):
+        print("Parent 1 method")
+
+class Parent2:
+    def method2(self):
+        print("Parent 2 method")
+
+class Child(Parent1, Parent2):
+    pass
+
+c = Child()
+c.method1()
+c.method2()
+
+Output:
+Parent 1 method
+Parent 2 method
+
+In this example, the Child class inherits from both the Parent1 and Parent2 classes. It can access the method1 and method2 methods defined in its parent classes.
+
+Q4. What are getter and setter in python? Create a class and create a getter and a setter method in this
+class.
+Ans--> In Python, getter and setter methods are used to access and modify the attributes of an object. The getter method is used to retrieve the value of an attribute, while the setter method is used to set the value of an attribute.
+
+Here's an example of a class with a getter and a setter method:
+
+class Rectangle:
+    def __init__(self, width, height):
+        self._width = width
+        self._height = height
+
+    def get_width(self):
+        return self._width
+
+    def set_width(self, value):
+        if value < 0:
+            raise ValueError("Width cannot be negative")
+        self._width = value
+
+    def get_height(self):
+        return self._height
+
+    def set_height(self, value):
+        if value < 0:
+            raise ValueError("Height cannot be negative")
+        self._height = value
+
+rect = Rectangle(10, 20)
+print(rect.get_width())    
+print(rect.get_height())   
+
+rect.set_width(30)
+rect.set_height(40)
+print(rect.get_width())   
+print(rect.get_height())
+
+Q5.What is method overriding in python? Write a python code to demonstrate method overriding.
+Ans--> Method overriding is a feature of object-oriented programming that allows a subclass to provide a new implementation for a method that is already defined in its parent class. This allows the subclass to inherit the interface and behavior of the parent class, while modifying it to fit its own specific needs.
+
+When a method is overridden in a subclass, the implementation in the subclass is called instead of the implementation in the parent class, when the method is called on an instance of the subclass.
+
+Here's an example of method overriding in Python:
+
+class Shape:
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+rect = Rectangle(10, 20)
+print(rect.area())    # 200
+
+circle = Circle(5)
+print(circle.area())  # 78.5
